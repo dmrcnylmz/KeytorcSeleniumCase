@@ -16,9 +16,12 @@ class FavoritePage(BasePage):
 
     def controlProductText(self):
         FavoriteProduct2 = self.get(FavoritePageLocators.FAVORITE_PRODUCT_TEXT2)
-        assert self.assertEqual(HomePage.getProductName(),FavoriteProduct2), "Eklenen ürün ile listedeki ürün " \
-                                                                             "eşleşmiyor. "
+        print("Favori listesindeki ürün adı:" + FavoriteProduct2)
+        assert self.assertEqual(HomePage.getProductName(), FavoriteProduct2), "Eklenen ürün ile listedeki ürün " \
+                                                                              "eşleşmiyor. "
+        print("Eklenen ürün listede bulundu")
 
     def deleteFavoriteProduct(self):
         self.click(FavoritePageLocators.DELETE_PRODUCT_BUTTON)
         assert self.is_not_displayed(FavoritePageLocators.FAVORITE_PRODUCT_TEXT2), "Delete process fail"
+        print("Favori listesi boş durumda.")

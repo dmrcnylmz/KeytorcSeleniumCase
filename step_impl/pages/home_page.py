@@ -24,27 +24,33 @@ class HomePage(BasePage):
 
     def is_home_page_visible(self):
         assert self.is_displayed(HomePageLocators.SIGN_IN_CONTROL), "Sign in Fail"
+        print("Login işlemi başarılı")
 
     def searchAndControl(self,searchText):
         self.set(HomePageLocators.SEARCH_BOX_INPUT, searchText)
         self.click(HomePageLocators.SEARCH_BUTTON)
-        self.is_displayed(HomePageLocators.SEARCH_CONTROL)
+        assert self.is_displayed(HomePageLocators.SEARCH_CONTROL), "Search fail"
+        print("Arama işlemi yapıldı")
 
     def goToSecondPageAndControl(self):
         self.click(HomePageLocators.GRID_SHORT_BUTTON)
         self.do_scroll_to_element(HomePageLocators.SECOND_PAGE_BUTTON)
         self.click(HomePageLocators.SECOND_PAGE_BUTTON)
-        self.is_displayed(HomePageLocators.SECOND_PAGE_ACTIVE_BUTTON)
+        assert self.is_displayed(HomePageLocators.SECOND_PAGE_ACTIVE_BUTTON) "Second page cant open"
+        print("2.sayfaya geçildi")
 
     def addFavoriteThirdProduct(self):
         self.hover(HomePageLocators.THIRD_PRODUCT_HEART_BUTTON)
         self.click(HomePageLocators.THIRD_PRODUCT_HEART_BUTTON)
+        print("3.ürün favorilere eklendi")
 
     def getProductName(self):
         FavoriteProduct1 = self.get(HomePageLocators.THIRD_PRODUCT_NAME)
+        print("Eklenen ürünün ismi :" +FavoriteProduct1)
         return FavoriteProduct1
 
     def goToFavoritePage(self):
         self.hover(HomePageLocators.SIGN_IN_CONTROL)
         self.click(HomePageLocators.FAVORITE_BUTTON)
+        print("Favoriler listesine gidildi")
 

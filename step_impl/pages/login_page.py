@@ -20,6 +20,8 @@ class LoginPage(BasePage):
 
     def visit(self):
         self.driver.get(self.URL)
+        assert self.is_displayed(LoginPageLocators.LOGIN_HEADER), "Visit Fail"
+        print("Sayfa açıldı")
 
     def login(self, user_name, password):
         self.hover(LoginPageLocators.LOGIN_HEADER)
