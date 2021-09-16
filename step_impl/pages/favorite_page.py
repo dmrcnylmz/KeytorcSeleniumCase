@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from step_impl.pages.base_page import BasePage
+from utilities.base_page import BasePage
 from step_impl.pages.home_page import HomePage
 
 

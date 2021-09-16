@@ -1,6 +1,5 @@
 from selenium.webdriver.common.by import By
-from step_impl.pages.base_page import BasePage
-import time
+from utilities.base_page import BasePage
 
 
 class LoginPageLocators:
